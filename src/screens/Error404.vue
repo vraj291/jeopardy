@@ -32,23 +32,23 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 4rem;
+        gap: 2rem;
         align-items: center;
     }
     .title{
-        font-size: 15rem;
+        font-size: 9rem;
     }
     .subtitle{
         width: 70%;
-        font-size: 3rem;
+        font-size: 1.7rem;
     }
     .butt{
-        padding: 1.3rem;
+        padding: 1rem;
         background-color: var(--blue);
         color: var(--gold);
         font-weight: 700;
         cursor: pointer;
         font-family: 'Raleway', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 </style>

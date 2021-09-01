@@ -147,7 +147,7 @@ export default {
         align-items: center;
     }
     .title{
-        font-size: 5rem;
+        font-size: 4rem;
         font-family: "Jeopardy";
     }
     .input-wrapper{
@@ -155,12 +155,12 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
-        font-size: 1.6rem;
-        margin: 2rem 3.5rem;
+        gap: 0.7rem;
+        font-size: 1.5rem;
+        margin: 1.5rem 3rem;
     }
     input,select{
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         background-color: var(--gold);
         outline: none;
         border: none;
@@ -170,7 +170,7 @@ export default {
         border-bottom: solid 5px var(--blue);
     }
     select{
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         padding: 0 0.5rem;
     }
     .butt{

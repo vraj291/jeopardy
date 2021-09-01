@@ -65,31 +65,31 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 4rem;
+        gap: 3rem;
         align-items: center;
     }
     .title{
-        font-size: 6rem;
+        font-size: 4.2rem;
     }
     .subtitle{
-        font-size: 4rem;
+        font-size: 1.7rem;
     }
     .butt{
-        padding: 1.3rem;
+        padding: 1rem;
         background-color: var(--blue);
         color: var(--gold);
         font-weight: 700;
         cursor: pointer;
         font-family: 'Raleway', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .list{
-        margin: 5rem 0;
+        margin: 3rem 0;
         display: flex;
         flex-direction: column;
         gap: 2rem;
     }
     .item-wrapper{
-        padding: 0 3rem;
+        padding: 0 2rem;
     }
 </style>

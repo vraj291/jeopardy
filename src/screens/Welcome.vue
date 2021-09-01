@@ -33,7 +33,7 @@ export default {
 
 .main-title{
     font-family: "Jeopardy";
-    font-size: 12rem;
+    font-size: 11rem;
     color: var(--blue);
     text-align: center;
     margin-bottom: 3rem;
@@ -47,7 +47,7 @@ export default {
 
 @media (max-width: 900px) {
     .main-title{
-        font-size: 10rem;
+        font-size: 8rem;
     }
     .option-wrapper{
         flex-direction: column;

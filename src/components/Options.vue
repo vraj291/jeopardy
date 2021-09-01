@@ -43,14 +43,14 @@ export default {
     background-color: var(--blue);
     border-radius: 20px;
     padding: 3rem;
-    width: 25rem;
+    width: 20rem;
     margin: 2rem;
 }
 
 .title{
     color: var(--gold);
     font-family: "Jeopardy";
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     margin-bottom: 2rem;
     text-transform: uppercase;
 }
