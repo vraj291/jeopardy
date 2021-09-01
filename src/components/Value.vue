@@ -27,10 +27,10 @@ export default {
     .block{
         color: var(--gold);
         font-family: 'Raleway', sans-serif;
-        width: 15rem;
-        padding: 2.4rem;
+        width: 10rem;
+        padding: 2rem;
         border: solid 8px black;
-        font-size: 2rem;
+        font-size: 1.4rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -52,6 +52,6 @@ export default {
     }
 
     .amount{
-        font-size: 3rem;
+        font-size: 1.7rem;
     }
 </style>

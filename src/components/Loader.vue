@@ -48,7 +48,7 @@ export default {
     transform:translate(-50%,-50%);
 }
 .text{
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-family: 'Raleway', sans-serif;
 }
 .lds-ellipsis {

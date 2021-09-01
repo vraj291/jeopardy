@@ -45,7 +45,7 @@ body{
 ::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: var(--gold);
-    -webkit-box-shadow: 0 0 1px rgba(20, 19, 19, 0.5);
+    box-shadow: 0 0 1px rgba(20, 19, 19, 0.5);
 }
 
 .app {

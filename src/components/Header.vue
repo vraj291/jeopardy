@@ -55,21 +55,21 @@ export default {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        margin: 1rem 0 4rem;
+        margin: 1rem 0 2.5rem;
     }
 
     .butt{
-        padding: 1.3rem;
+        padding: 1rem;
         background-color: var(--gold);
         color: var(--blue);
         font-weight: 700;
         cursor: pointer;
         font-family: 'Raleway', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .title,.score{
-        font-size: 5rem;
+        font-size: 3.5rem;
         font-family: "Jeopardy";
         color: var(--gold);
     }

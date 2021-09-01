@@ -29,7 +29,7 @@ export default {
 
     .footer-text{
         font-family: 'Raleway', sans-serif;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     a{

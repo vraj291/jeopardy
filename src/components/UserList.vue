@@ -25,8 +25,8 @@ export default {
 .rank{
     display: flex;
     justify-content: space-between;
-    gap: 3rem;
-    font-size: 2.3rem;
+    gap: 2rem;
+    font-size: 1.7rem;
     font-family: 'Raleway', sans-serif;
 }
 </style>

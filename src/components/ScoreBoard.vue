@@ -69,35 +69,35 @@ export default {
     border: solid 7px black;
     border-radius: 10px; 
     font-family: 'Raleway', sans-serif;
-    padding: 2rem 4rem;
+    padding: 1rem 3rem;
     color: var(--blue);
     z-index: 3;
 }
 
 .title{
     font-family: "Jeopardy";
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
 }
 
 .closed-title{
     font-family: "Jeopardy";
-    font-size: 2.5rem;
+    font-size: 1.7rem;
     margin: -0.5rem;
     margin-bottom: 0;
     cursor: pointer;
 }
 
     .butt{
-        padding: 1.1rem;
-        margin-top: 2rem;
+        padding: 1rem;
+        margin-top: 1rem;
         background-color: var(--blue);
         color: var(--gold);
         border:none;
         font-weight: 700;
         cursor: pointer;
         font-family: 'Raleway', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .close-butt{

@@ -22,11 +22,11 @@ export default {
         background-color: var(--blue);
         font-family: "Jeopardy";
         color:white;
-        width: 15rem;
-        padding: 2.4rem;
+        width: 10rem;
+        padding: 2rem;
         border: solid 8px black;
-        height: 5rem;
-        font-size: 2.2rem;
+        height: 3.5rem;
+        font-size: 1.7rem;
         display: flex;
         justify-content: center;
         align-items: center;

@@ -71,38 +71,38 @@ export default {
     .text,.answer,input{
         font-family: "Jeopardy";
         color: white;
-        font-size: 5.5rem;
+        font-size: 4rem;
     }
     .answer{
-        font-size: 3rem;
+        font-size: 2rem;
     }
     input{
         margin-left: 3rem;
-        font-size: 3rem;
+        font-size: 2rem;
         background-color: var(--blue);
         border: none;
         outline: none;
         border-bottom: solid 10px black;
     }
     .butt{
-        padding: 1.3rem;
+        padding: 1rem;
         margin-top: 5rem;
         background-color: var(--gold);
         color: var(--blue);
         font-weight: 700;
         cursor: pointer;
         font-family: 'Raleway', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .inner-wrapper{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        gap: 2rem;
-        margin-bottom: 3rem;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
     }
     .category{
-        font-size: 5rem;
+        font-size: 3.5rem;
         font-family: "Jeopardy";
         color: var(--gold);
     }
