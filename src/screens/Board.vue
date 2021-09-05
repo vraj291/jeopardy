@@ -1,7 +1,10 @@
 <template>
     <div class="wrapper" :style="background">
         <div class="loader" v-if="loading">
-            <Loader text="Preparing a Fun Time for You" color=1 />
+            <Loader text="Preparing a Fun Time for You" :color="1" />
+        </div>
+        <div class="loader" v-else-if="error">
+            <Error :press="prepareQuestions" :color="1"/>
         </div>
         <div v-else>
             <div class="column-wrapper">
@@ -18,7 +21,7 @@
                     :user="currPlayer"
                     :question="currQuestion"
                     :skip="closeQuestion"
-                    :pass="changeTurn"
+                    :pass="passTurn"
                     :check="checkAnswer"
                 />
             </div>
@@ -37,6 +40,7 @@ import { createToast } from 'mosha-vue-toastify';
 import 'mosha-vue-toastify/dist/style.css'
 import CategoryColumn from '@/components/CategoryColumn.vue';
 import Loader from '@/components/Loader.vue'
+import Error from '@/components/Error.vue'
 import QuestionWrapper from '@/components/QuestionWrapper.vue'
 import ScoreBoard from '@/components/ScoreBoard.vue'
 
@@ -45,7 +49,9 @@ export default {
     data(){
         return {
             loading : false,
+            error: false,
             questionVisible: false,
+            lastPass: -1,
             players: [],
             currPlayer: {
                 id: 0,
@@ -59,6 +65,7 @@ export default {
     components: { 
         CategoryColumn,
         Loader,
+        Error,
         QuestionWrapper,
         ScoreBoard
     },
@@ -80,20 +87,7 @@ export default {
         console.log(this.currPlayer)
     },
     mounted(){
-        this.loading = true;
-        let result = this.$store.getters.getQuestions
-        if(Object.keys(result).length == 0){
-            getQuestions().then(data => {
-                this.questions = data
-                this.$store.dispatch('addQuestions',{
-                    questions: data
-                })
-                this.loading = false;
-            })
-        }else{
-            this.questions = result
-            this.loading = false;
-        }
+        this.prepareQuestions()
     },
     computed:{
         background(){
@@ -101,6 +95,27 @@ export default {
         }
     },
     methods: {
+        prepareQuestions(){
+            this.loading = true;
+            this.error = false;
+            let result = this.$store.getters.getQuestions
+            if(Object.keys(result).length == 0){
+                getQuestions().then(data => {
+                    if(data != null){
+                        this.questions = data
+                        this.$store.dispatch('addQuestions',{
+                            questions: data
+                        })
+                    }else{
+                        this.error = true;
+                    }
+                    this.loading = false;
+                })
+            }else{
+                this.questions = result
+                this.loading = false;
+            }
+        },
         checkAnswer(answer){
             if(this.currQuestion.answer.toLowerCase().includes(answer.toLowerCase())){
                 createToast({
@@ -139,8 +154,27 @@ export default {
             this.players[this.currPlayer.id].score += this.currQuestion.value
             this.closeQuestion()
         },
+        passTurn(){
+            if(this.lastPass == -1){
+                this.lastPass = this.currPlayer.id
+                this.changeTurn()
+            }else if(this.lastPass == this.getNextTurn()){
+                this.lastPass = -1;
+                createToast({
+                    title: "Question was skipped."
+                },{
+                    type: 'danger'
+                })
+                this.closeQuestion()
+            }else{
+                this.changeTurn()
+            }
+        },
+        getNextTurn(){
+            return (this.currPlayer.id + 1)%(this.players.length)
+        },
         changeTurn(){
-            let turn = (this.currPlayer.id + 1)%(this.players.length)
+            let turn = this.getNextTurn()
             this.currPlayer = {
                 ...this.players[turn],
                 id : turn

@@ -15,6 +15,34 @@ export const getQuestion = async() => {
     })))
 }
 
+const shuffle = (array) => {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+export const getQuestionAlt = async() => {
+    let ques = await getQuestions()
+    let result = []
+    if(ques == null) return null
+    for(let i of Object.keys(ques)){
+        for(let e of ques[i]){
+            result.push({
+                question: e.question,
+                answer: e.answer,
+                category: i,
+                value: e.value
+            })
+        }
+    }
+    result = shuffle(result);
+    return result;
+}
+
 const getDate = () => {
     let day = Math.round(Math.random()*28);
     if(day < 10){
@@ -47,19 +75,22 @@ const processData = (data) => {
     return cats
 }
 
-export const getQuestions = async (date) => {
+export const getQuestions = async (attempt,date) => {
     let random= false
     if(date == undefined){
         date = getDate()
         random = true
+    }
+    if(attempt == undefined){
+        attempt=1;
     }
     return axios({
         url:`https://jarchive-json.glitch.me/game/${date}`,
         method:'GET'
     }).then(res => {
         if(res.data.message){
-            if(random)
-                return getQuestions()
+            if(random && attempt < 10)
+                return getQuestions(attempt+1)
             else
                 return null
         }else{

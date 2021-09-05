@@ -1,7 +1,7 @@
 <template>
     <div class="main-wrapper">
         <div class='main-title'>
-            Jeopardy
+            Jeopardy!
         </div>
         <div class='option-wrapper'>
             <Options mode='practice'/>

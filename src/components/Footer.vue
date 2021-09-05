@@ -36,4 +36,11 @@ export default {
         color: var(--gold);
     }
 
+    @media (max-width : 700px) {
+        .footer-wrapper{
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+
 </style>

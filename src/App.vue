@@ -1,6 +1,12 @@
 <template>
-  <div class="app">
+  <div class="app" v-if="canAccess">
     <router-view/>
+    <Footer/>
+  </div>
+  <div class="app" v-else>
+    <div class="access-error">
+      We are extremely sorry but this application needs a larger screen to operate. Try reloading or accessing it from another device.
+    </div>
     <Footer/>
   </div>
 </template>
@@ -12,7 +18,15 @@ export default {
   components: { 
     Footer
   },
-  name: 'App'
+  name: 'App',
+  computed:{
+    canAccess(){
+      if(window.innerWidth > 1900 && window.innerHeight > 900){
+        return true
+      }
+      return false
+    }
+  }
 };
 </script>
 
@@ -35,6 +49,16 @@ body{
   margin: 0;
   padding: 0;
   background-color: var(--gold);
+}
+
+.access-error{
+  flex: 1 0 auto;
+  font-family: "Jeopardy";
+  color: var(--blue);
+  width: 70%;
+  display:flex;
+  align-items: center;
+  font-size: 2.5rem;
 }
 
 ::-webkit-scrollbar {

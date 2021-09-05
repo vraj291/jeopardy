@@ -3,6 +3,8 @@
         :user="user"
         :question="question"
         :loading="loading"
+        :error="error"
+        :next="getNewQuestion"
         :skip="skip"
         :exit="exit"
         :check="checkAnswer"
@@ -11,7 +13,7 @@
 
 <script>
 
-import { getQuestion } from '@/api/questions'
+import { getQuestionAlt } from '@/api/questions'
 import { createToast } from 'mosha-vue-toastify';
 import 'mosha-vue-toastify/dist/style.css'
 import QuestionWrapper from '../components/QuestionWrapper.vue'
@@ -24,6 +26,7 @@ export default {
     data(){
         return{
             loading: false,
+            error: false,
             user : {
                 name : '',
                 score: 0
@@ -61,13 +64,18 @@ export default {
         },
         async getNewQuestion(){
             this.loading = true
-            if(this.questionId == -1 || this.questionId == 9){
-                getQuestion().then(data => {
-                    this.$store.dispatch('addQuestions',{
-                        questions: data
-                    })
-                    this.question = data[0]
-                    this.questionId = 0
+            this.error = false
+            if(this.questionId == -1 || this.questionId == 29){
+                getQuestionAlt().then(data => {
+                    if(data != null){
+                        this.$store.dispatch('addQuestions',{
+                            questions: data
+                        })
+                        this.question = data[0]
+                        this.questionId = 0
+                    }else{
+                        this.error = true;
+                    }
                     this.loading = false
                 })
             }else{
