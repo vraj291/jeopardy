@@ -1,6 +1,6 @@
 <template>
-    <div class="wrapper" @mousedown="dragStart">
-    <div  v-if="open" >
+    <div class="wrapper">
+    <div  v-if="open">
         <div class="title"> Teams </div>
         <UserList :users="users" />
         <button class="butt" @click="exit">
@@ -60,7 +60,7 @@ export default {
 <style scoped>
 
 .wrapper{
-    cursor: move;
+    cursor: pointer;
     position: absolute;
     bottom: 0%;
     left: 50%;

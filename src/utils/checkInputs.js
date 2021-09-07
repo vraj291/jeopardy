@@ -13,7 +13,7 @@ export const checkUser = (name,index) => {
                 description: `The ${temp} can not be empty.`
             }
         })
-    }else if(name.match(/^[a-z ,.'-]+$/i) == null){ 
+    }else if(name.match(/^[a-z A-Z 0-9 _]+$/i) == null){ 
         return({
             err: true,
             data: {

@@ -19,12 +19,16 @@ export default {
     Footer
   },
   name: 'App',
-  computed:{
-    canAccess(){
-      if(window.innerWidth > 1900 && window.innerHeight > 900){
-        return true
-      }
-      return false
+  data() {
+    return {
+      canAccess: true
+    }
+  },
+  mounted(){
+    if(window.innerWidth > 1500 && window.innerHeight > 700){
+      this.canAccess = true
+    }else{
+      this.canAccess = false
     }
   }
 };
